@@ -254,6 +254,7 @@ FPwin::FPwin (QWidget *parent):QMainWindow (parent), dummyWidget (nullptr), ui (
     connect (ui->actionCheckGrammar, &QAction::triggered, this, &FPwin::checkGrammar);
     connect (ui->actionWPPublish, &QAction::triggered, this, &FPwin::wpPublish);
     connect (ui->actionWPBrowse, &QAction::triggered, this, &FPwin::wpBrowse);
+    connect (ui->actionMindMap, &QAction::triggered, this, &FPwin::mindMap);
     connect (ui->actionUserDict, &QAction::triggered, this, &FPwin::userDict);
 
     connect (ui->actionReplace, &QAction::triggered, this, &FPwin::replaceDock);
@@ -5835,6 +5836,25 @@ void FPwin::wpPublish()
         return;
     }
     runExtTool ("emdash-wp", QStringList() << "publish" << fName);
+}
+/*************************/
+void FPwin::mindMap()
+{
+    TabPage *tabPage = qobject_cast<TabPage*>(ui->tabWidget->currentWidget());
+    if (tabPage == nullptr) return;
+    QString fName = tabPage->textEdit()->getFileName();
+    if (fName.isEmpty())
+    {
+        showWarningBar ("<center><b><big>" + tr ("Save the file first!") + "</big></center>", 15);
+        return;
+    }
+    QString svg = fName + ".mindmap.svg";
+    if (QProcess::execute ("emdash-mindmap", QStringList() << fName << "--out" << svg) != 0)
+    {
+        showWarningBar ("<center><b><big>" + tr ("Mind map failed!") + "</big></center>", 15);
+        return;
+    }
+    QDesktopServices::openUrl (QUrl::fromLocalFile (svg));
 }
 /*************************/
 void FPwin::wpBrowse()

@@ -189,6 +189,7 @@ private slots:
     void checkGrammar();
     void wpPublish();
     void wpBrowse();
+    void mindMap();
     void runExtTool (const QString &cmd, const QStringList &args);
     void userDict();
     void aboutDialog();

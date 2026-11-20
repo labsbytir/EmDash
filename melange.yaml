@@ -45,5 +45,6 @@ pipeline:
       mkdir -p ${{targets.contextdir}}/usr/bin
       install -m 0755 /home/build/tools/emdash-harper.sh ${{targets.contextdir}}/usr/bin/emdash-harper
       install -m 0755 /home/build/tools/emdash-wp.py ${{targets.contextdir}}/usr/bin/emdash-wp
+      install -m 0755 /home/build/tools/emdash-mindmap.py ${{targets.contextdir}}/usr/bin/emdash-mindmap
 
   - uses: strip

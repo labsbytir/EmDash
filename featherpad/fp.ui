@@ -214,6 +214,7 @@
     <addaction name="separator"/>
     <addaction name="actionWPPublish"/>
     <addaction name="actionWPBrowse"/>
+    <addaction name="actionMindMap"/>
     <addaction name="actionUserDict"/>
     <addaction name="separator"/>
     <addaction name="actionDate"/>
@@ -1014,6 +1015,11 @@
   <action name="actionWPBrowse">
    <property name="text">
     <string>WordPress Browse Posts…</string>
+   </property>
+  </action>
+  <action name="actionMindMap">
+   <property name="text">
+    <string>Mind Map…</string>
    </property>
   </action>
   <action name="actionSaveAllFiles">
