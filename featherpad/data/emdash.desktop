@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=FeatherPad
+Name=EmDash
 GenericName=Text Editor
 GenericName[cs]=Textový editor
 GenericName[da]=Tekstredigering
@@ -30,8 +30,8 @@ Comment[ru]=Лёгкий текстовый редактор на Qt
 Comment[sv]=Lättviktig Qt-textredigering
 Comment[tr]=Hafif Qt tabanlı metin düzenleyici
 Comment[zh_CN]=轻量级 Qt 文本编辑器
-Exec=featherpad %U
-Icon=featherpad
+Exec=emdash %U
+Icon=emdash
 Terminal=false
 Type=Application
 MimeType=text/plain;application/x-zerosize;
@@ -50,7 +50,7 @@ Name[it]=Nuova finestra
 Name[hu]=Új ablak
 Name[pt]=Nova Janela
 Name[sv]=Nytt Fönster
-Exec=featherpad --win
+Exec=emdash --win
 
 [Desktop Action standalone-window]
 Name=Standalone Window
@@ -59,4 +59,4 @@ Name[eo]=Memstara Fenestro
 Name[fa]=پنجره‌ی جدا
 Name[it]=Finestra indipendente
 Name[sv]=Fristående Fönster
-Exec=featherpad --standalone
+Exec=emdash --standalone

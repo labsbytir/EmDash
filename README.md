@@ -1,8 +1,26 @@
-# FeatherPad
+# EmDash
+
+> Fork of [FeatherPad](https://github.com/tsujan/FeatherPad) by Pedram Pourang (Tsu Jan),
+> packaged with the Newsk OS flavor by tir labs inc. GPL-3.0-or-later (see COPYING).
+> Upstream credit: FeatherPad authors and translators.
 
 ## Overview
 
-FeatherPad (by Pedram Pourang, a.k.a. Tsu Jan <tsujan2000@gmail.com>) is a lightweight Qt plain-text/code editor for Linux. It is independent of any desktop environment and has:
+EmDash is a lightweight Qt plain-text/code editor for Linux (FeatherPad fork). It is independent of any desktop environment and has:
+
+## EmDash additions (this fork)
+
+- **Harper grammar check**: Edit → Check Grammar (Harper). Runs `emdash-harper`
+  (bundled `harper-ls` v3.3.0, musl static) on the current file; output in the message dialog.
+- **WordPress**: Edit → WordPress Publish Post / Browse Posts. Runs `emdash-wp`
+  (stdlib-only Python, `WP_SITE` + `WP_USER` + `WP_APP_PASSWORD` env) via the WP REST API.
+- **Newsk packaging**: `melange.yaml` + `apko.yaml` build the Newsk-flavored image
+  (blocked on Wolfi providing `qt6-qtsvg`; editor itself needs no other new deps).
+
+## Plugins & companions
+
+- `tools/emdash-harper.sh` — Harper bridge (tested against harper-cli 3.3.0).
+- `tools/emdash-wp.py` — WP REST client; `python3 tools/test_emdash_wp.py` (mock-server tested).
 
   * Drag-and-drop support, including tab detachment and attachment;
   * Workspace awareness under X11 and some Wayland compositors (using tabs on current desktop but opening a new window on another);

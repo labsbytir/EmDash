@@ -210,6 +210,10 @@
     <addaction name="actionRSortLines"/>
     <addaction name="separator"/>
     <addaction name="actionCheckSpelling"/>
+    <addaction name="actionCheckGrammar"/>
+    <addaction name="separator"/>
+    <addaction name="actionWPPublish"/>
+    <addaction name="actionWPBrowse"/>
     <addaction name="actionUserDict"/>
     <addaction name="separator"/>
     <addaction name="actionDate"/>
@@ -995,6 +999,21 @@
    </property>
    <property name="shortcut">
     <string>F2</string>
+   </property>
+  </action>
+  <action name="actionCheckGrammar">
+   <property name="text">
+    <string>Check Grammar (Harper)</string>
+   </property>
+  </action>
+  <action name="actionWPPublish">
+   <property name="text">
+    <string>WordPress Publish Post…</string>
+   </property>
+  </action>
+  <action name="actionWPBrowse">
+   <property name="text">
+    <string>WordPress Browse Posts…</string>
    </property>
   </action>
   <action name="actionSaveAllFiles">

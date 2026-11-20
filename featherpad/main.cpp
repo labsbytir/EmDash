@@ -31,7 +31,7 @@
 
 int main (int argc, char **argv)
 {
-    const QString name = "FeatherPad";
+    const QString name = "EmDash";
     const QString version = "1.6.5";
 
     FeatherPad::FPsingleton singleton (argc, argv);
@@ -49,13 +49,13 @@ int main (int argc, char **argv)
     if (firstArg == "--help" || firstArg == "-h")
     {
         QTextStream out (stdout);
-        out << "FeatherPad - Lightweight Qt text editor\n"\
+        out << "EmDash - Lightweight Qt text editor (FeatherPad fork)\n"\
                "Usage:\n	featherpad [option(s)] [file1 file2 ...]\n"\
                "Or:\n	fpad [option(s)] [file1 file2 ...]\n\n"\
                "Options:\n\n"\
                "--help or -h        Show this help and exit.\n"\
                "--version or -v     Show version information and exit.\n"\
-               "--standalone or -s  Start a standalone process of FeatherPad.\n"\
+               "--standalone or -s  Start a standalone process of EmDash.\n"\
                "--win or -w         Open file(s) in a new window.\n"\
                "+                   Place cursor at document end.\n"\
                "+<L>                Place cursor at start of line L (L starts from 1).\n"\

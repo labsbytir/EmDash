@@ -120,8 +120,8 @@ qt6_add_dbus_adaptor(featherpad_DBUS_SRCS
 )
 
 set(featherpad_RESOURCES data/fp.qrc)
-set(DESKTOP_FILE data/featherpad.desktop)
-set(METAINFO_FILE data/featherpad.metainfo.xml)
+set(DESKTOP_FILE data/emdash.desktop)
+set(METAINFO_FILE data/emdash.metainfo.xml)
 set(HELP_FILE data/help)
 # file(GLOB HELP_TR_FILES data/help_*)
 if(APPLE)
@@ -130,7 +130,7 @@ if(APPLE)
   SET_SOURCE_FILES_PROPERTIES(${ICON_FILE} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
   SET_SOURCE_FILES_PROPERTIES(${HELP_FILE} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
 elseif(NOT OS2)
-  set(ICON_FILE data/featherpad.svg)
+  set(ICON_FILE data/emdash.svg)
 endif()
 if(OS2)
   enable_language(RC)
@@ -145,23 +145,23 @@ if(Qt6LinguistTools_FOUND)
   file(GLOB TS_FILES data/translations/featherpad_*.ts)
   qt6_add_translation(QM_FILES ${TS_FILES})
   if(APPLE)
-    add_executable(featherpad ${featherpad_SRCS} ${featherpad_DBUS_SRCS} ${featherpad_RESOURCES} ${EXTRA_HEADERS} ${DESKTOP_FILE} ${QM_FILES} ${ICON_FILE} ${HELP_FILE})
+    add_executable(emdash ${featherpad_SRCS} ${featherpad_DBUS_SRCS} ${featherpad_RESOURCES} ${EXTRA_HEADERS} ${DESKTOP_FILE} ${QM_FILES} ${ICON_FILE} ${HELP_FILE})
   else()
-    add_executable(featherpad ${featherpad_SRCS} ${featherpad_DBUS_SRCS} ${featherpad_RESOURCES} ${EXTRA_HEADERS} ${DESKTOP_FILE} ${QM_FILES})
+    add_executable(emdash ${featherpad_SRCS} ${featherpad_DBUS_SRCS} ${featherpad_RESOURCES} ${EXTRA_HEADERS} ${DESKTOP_FILE} ${QM_FILES})
   endif()
   if(HAIKU)
     install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_PREFIX}/translations")
   elseif(APPLE)
     SET_SOURCE_FILES_PROPERTIES(${QM_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION Resources/translations)
   elseif(UNIX OR OS2)
-    install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_PREFIX}/share/featherpad/translations")
+    install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_PREFIX}/share/emdash/translations")
   endif()
 else(Qt6LinguistTools_FOUND)
-  add_executable(featherpad ${featherpad_SRCS} ${featherpad_DBUS_SRCS} ${featherpad_RESOURCES} ${EXTRA_HEADERS} ${DESKTOP_FILE})
+  add_executable(emdash ${featherpad_SRCS} ${featherpad_DBUS_SRCS} ${featherpad_RESOURCES} ${EXTRA_HEADERS} ${DESKTOP_FILE})
 endif(Qt6LinguistTools_FOUND)
 
 if(NOT WITHOUT_X11 AND UNIX AND NOT APPLE AND NOT HAIKU)
-  target_link_libraries(featherpad ${Qt6Core_LIBRARIES}
+  target_link_libraries(emdash ${Qt6Core_LIBRARIES}
                                    ${Qt6Gui_LIBRARIES}
                                    ${Qt6Widgets_LIBRARIES}
                                    ${Qt6Svg_LIBRARIES}
@@ -170,7 +170,7 @@ if(NOT WITHOUT_X11 AND UNIX AND NOT APPLE AND NOT HAIKU)
                                    ${X11_LIBRARIES}
                                    ${HUNSPELL_LIBRARIES})
 else()
-  target_link_libraries(featherpad ${Qt6Core_LIBRARIES}
+  target_link_libraries(emdash ${Qt6Core_LIBRARIES}
                                    ${Qt6Gui_LIBRARIES}
                                    ${Qt6Widgets_LIBRARIES}
                                    ${Qt6Svg_LIBRARIES}

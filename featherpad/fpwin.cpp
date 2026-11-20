@@ -251,6 +251,9 @@ FPwin::FPwin (QWidget *parent):QMainWindow (parent), dummyWidget (nullptr), ui (
     connect (ui->actionPreferences, &QAction::triggered, this, &FPwin::prefDialog);
 
     connect (ui->actionCheckSpelling, &QAction::triggered, this, &FPwin::checkSpelling);
+    connect (ui->actionCheckGrammar, &QAction::triggered, this, &FPwin::checkGrammar);
+    connect (ui->actionWPPublish, &QAction::triggered, this, &FPwin::wpPublish);
+    connect (ui->actionWPBrowse, &QAction::triggered, this, &FPwin::wpBrowse);
     connect (ui->actionUserDict, &QAction::triggered, this, &FPwin::userDict);
 
     connect (ui->actionReplace, &QAction::triggered, this, &FPwin::replaceDock);
@@ -993,7 +996,7 @@ bool FPwin::hasAnotherDialog()
     }
     if (res)
     {
-        showWarningBar ("<center><b><big>" + tr ("Another FeatherPad window has a modal dialog!") + "</big></b></center>"
+        showWarningBar ("<center><b><big>" + tr ("Another EmDash window has a modal dialog!") + "</big></b></center>"
                         + "<center><i>" + tr ("Please attend to that window or just close its dialog!") + "</i></center>",
                         15);
     }
@@ -2705,7 +2708,7 @@ void FPwin::onOpeningHugeFiles()
     disconnect (this, &FPwin::finishedLoading, this, &FPwin::onOpeningHugeFiles);
     QTimer::singleShot (0, this, [this]() {
         showWarningBar ("<center><b><big>" + tr ("Huge file(s) not opened!") + "</big></b></center>\n"
-                        + "<center>" + tr ("FeatherPad does not open files larger than 100 MiB.") + "</center>");
+                        + "<center>" + tr ("EmDash does not open files larger than 100 MiB.") + "</center>");
     });
 }
 /*************************/
@@ -4033,7 +4036,7 @@ void FPwin::tabSwitch (int index)
     TabPage *tabPage = qobject_cast< TabPage *>(ui->tabWidget->widget (index));
     if (tabPage == nullptr)
     {
-        setWindowTitle ("FeatherPad[*]");
+        setWindowTitle ("EmDash[*]");
         if (auto label = qobject_cast<QLabel*>(ui->menuBar->cornerWidget()))
             label->clear();
         setWindowModified (false);
@@ -5779,6 +5782,66 @@ static inline void selectWord (QTextCursor& cur)
     }
 }
 
+
+/*************************/
+void FPwin::runExtTool (const QString &cmd, const QStringList &args)
+{
+    if (TabPage *tabPage = qobject_cast<TabPage*>(ui->tabWidget->currentWidget()))
+    {
+        if (tabPage->findChild<QProcess *>(QString(), Qt::FindDirectChildrenOnly))
+        {
+            showWarningBar ("<center><b><big>" + tr ("Another process is running in this tab!") + "</big></b></center>", 15);
+            return;
+        }
+        QProcess *process = new QProcess (tabPage);
+        process->setObjectName (cmd);
+        connect (process, &QProcess::readyReadStandardOutput, this, &FPwin::displayOutput);
+        connect (process, &QProcess::readyReadStandardError, this, &FPwin::displayError);
+        connect (process, &QProcess::errorOccurred, this, [this, process](QProcess::ProcessError error) {
+            if (error == QProcess::FailedToStart)
+            {
+                showWarningBar ("<center><b><big>" + tr ("Cannot start process!") + "</big></b></center>"
+                                + "<center><i>" + process->errorString() + "</i></center>", 15);
+                process->deleteLater();
+            }
+        });
+        connect (process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this,
+                 [process](int, QProcess::ExitStatus) {process->deleteLater();});
+        process->start (cmd, args);
+    }
+}
+/*************************/
+void FPwin::checkGrammar()
+{
+    TabPage *tabPage = qobject_cast<TabPage*>(ui->tabWidget->currentWidget());
+    if (tabPage == nullptr) return;
+    QString fName = tabPage->textEdit()->getFileName();
+    if (fName.isEmpty())
+    {
+        showWarningBar ("<center><b><big>" + tr ("Save the file first!") + "</big></b></center>", 15);
+        return;
+    }
+    runExtTool ("emdash-harper", QStringList() << "check" << fName);
+}
+/*************************/
+void FPwin::wpPublish()
+{
+    TabPage *tabPage = qobject_cast<TabPage*>(ui->tabWidget->currentWidget());
+    if (tabPage == nullptr) return;
+    QString fName = tabPage->textEdit()->getFileName();
+    if (fName.isEmpty())
+    {
+        showWarningBar ("<center><b><big>" + tr ("Save the file first!") + "</big></b></center>", 15);
+        return;
+    }
+    runExtTool ("emdash-wp", QStringList() << "publish" << fName);
+}
+/*************************/
+void FPwin::wpBrowse()
+{
+    runExtTool ("emdash-wp", QStringList() << "list");
+}
+/*************************/
 void FPwin::checkSpelling()
 {
     TabPage *tabPage = qobject_cast<TabPage*>(ui->tabWidget->currentWidget());
@@ -6268,8 +6331,8 @@ void FPwin::aboutDialog()
                         + tr ("based on Qt") + " </center><br><center> "
                         + tr ("Author")+": <a href='mailto:tsujan2000@gmail.com?Subject=My%20Subject'>Pedram Pourang ("
                         + tr ("aka.") + " Tsu Jan)</a> </center><p></p>");
-    dialog.setTabTexts (tr ("About FeatherPad"), tr ("Translators"));
-    dialog.setWindowTitle (tr ("About FeatherPad"));
+    dialog.setTabTexts (tr ("About EmDash"), tr ("Translators"));
+    dialog.setWindowTitle (tr ("About EmDash"));
     dialog.setWindowModality (Qt::WindowModal);
     dialog.exec();
     updateShortcuts (false);

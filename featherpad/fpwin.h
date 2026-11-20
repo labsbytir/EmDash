@@ -186,6 +186,10 @@ private slots:
     void toggleSidePane();
     void prefDialog();
     void checkSpelling();
+    void checkGrammar();
+    void wpPublish();
+    void wpBrowse();
+    void runExtTool (const QString &cmd, const QStringList &args);
     void userDict();
     void aboutDialog();
     void helpDoc();
