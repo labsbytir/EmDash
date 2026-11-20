@@ -6,9 +6,8 @@ contents:
   packages:
     - wolfi-base
     - ca-certificates-bundle
-    - qt6-qtbase
-    - qt6-qtsvg
-    - hunspell
+    - gtk-3
+    - hicolor-icon-theme
     - python3.13
     - emdash
 

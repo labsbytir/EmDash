@@ -1,0 +1,142 @@
+A patch to Scintilla 3.54 containing our changes to Scintilla
+(removing unused lexers, exporting symbols).
+diff --git scintilla/gtk/ScintillaGTK.cxx scintilla/gtk/ScintillaGTK.cxx
+index 0871ca2..49dc278 100644
+--- scintilla/gtk/ScintillaGTK.cxx
++++ scintilla/gtk/ScintillaGTK.cxx
+@@ -3205,11 +3205,13 @@
+ }
+ 
+ /* legacy name for scintilla_object_send_message */
++GEANY_API_SYMBOL
+ sptr_t scintilla_send_message(ScintillaObject *sci, unsigned int iMessage, uptr_t wParam, sptr_t lParam) {
+ 	ScintillaGTK *psci = static_cast<ScintillaGTK *>(sci->pscin);
+ 	return psci->WndProc(static_cast<Message>(iMessage), wParam, lParam);
+ }
+ 
++GEANY_API_SYMBOL
+ gintptr scintilla_object_send_message(ScintillaObject *sci, unsigned int iMessage, uptr_t wParam, sptr_t lParam) {
+ 	return scintilla_send_message(sci, iMessage, wParam, lParam);
+ }
+@@ -3218,6 +3220,7 @@
+ static void scintilla_init(ScintillaObject *sci);
+ 
+ /* legacy name for scintilla_object_get_type */
++GEANY_API_SYMBOL
+ GType scintilla_get_type() {
+ 	static GType scintilla_type = 0;
+ 	try {
+@@ -3247,6 +3250,7 @@
+ 	return scintilla_type;
+ }
+ 
++GEANY_API_SYMBOL
+ GType scintilla_object_get_type() {
+ 	return scintilla_get_type();
+ }
+@@ -3352,6 +3356,7 @@
+ }
+ 
+ /* legacy name for scintilla_object_new */
++GEANY_API_SYMBOL
+ GtkWidget *scintilla_new() {
+ 	GtkWidget *widget = GTK_WIDGET(g_object_new(scintilla_get_type(), nullptr));
+ 	gtk_widget_set_direction(widget, GTK_TEXT_DIR_LTR);
+@@ -3359,6 +3364,7 @@
+ 	return widget;
+ }
+ 
++GEANY_API_SYMBOL
+ GtkWidget *scintilla_object_new() {
+ 	return scintilla_new();
+ }
+@@ -3381,6 +3387,7 @@
+ static void *copy_(void *src) { return src; }
+ static void free_(void *) { }
+ 
++GEANY_API_SYMBOL
+ GType scnotification_get_type(void) {
+ 	static gsize type_id = 0;
+ 	if (g_once_init_enter(&type_id)) {
+diff --git scintilla/lexilla/src/Lexilla.cxx scintilla/lexilla/src/Lexilla.cxx
+index cd4b23617..af4a73db4 100644
+--- scintilla/lexilla/src/Lexilla.cxx
++++ scintilla/lexilla/src/Lexilla.cxx
+@@ -167,8 +167,77 @@
+ 
+ CatalogueModules catalogueLexilla;
+ 
++static void AddGeanyLexers()
++{
++	catalogueLexilla.AddLexerModules({
++		&lmAbaqus,
++		&lmAda,
++		&lmAsciidoc,
++		&lmAsm,
++		&lmAU3,
++		&lmBash,
++		&lmBatch,
++		&lmCaml,
++		&lmCIL,
++		&lmCmake,
++		&lmCOBOL,
++		&lmCoffeeScript,
++		&lmCPP,
++		&lmCss,
++		&lmD,
++		&lmDart,
++		&lmDiff,
++		&lmErlang,
++		&lmF77,
++		&lmForth,
++		&lmFortran,
++		&lmFreeBasic,
++		&lmGDScript,
++		&lmHaskell,
++		&lmHTML,
++		&lmJulia,
++		&lmLatex,
++		&lmLISP,
++		&lmLua,
++		&lmMake,
++		&lmMarkdown,
++		&lmNim,
++		&lmNix,
++		&lmNsis,
++		&lmNull,
++		&lmOctave,
++		&lmPascal,
++		&lmPerl,
++		&lmPHPSCRIPT,
++		&lmPO,
++		&lmPowerShell,
++		&lmProps,
++		&lmPython,
++		&lmR,
++		&lmRaku,
++		&lmRuby,
++		&lmRust,
++		&lmSINEX,
++		&lmSmalltalk,
++		&lmSQL,
++		&lmTCL,
++		&lmTOML,
++		&lmTxt2tags,
++		&lmVerilog,
++		&lmVHDL,
++		&lmVisualProlog,
++		&lmXML,
++		&lmYAML,
++		&lmZig,
++	});
++}
++
++
+ void AddEachLexer() {
+ 
++	AddGeanyLexers();
++	return;
++
+ 	if (catalogueLexilla.Count() > 0) {
+ 		return;
+ 	}

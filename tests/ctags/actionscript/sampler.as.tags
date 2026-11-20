@@ -1,0 +1,30 @@
+assertÌ128ÎsampleTypesÖ0
+method:     sampleTypes :: assert
+bÌ16384ÎsampleTypesÖ0
+variable:   sampleTypes :: b
+cpuSamplesÌ16384ÎsampleTypes.sampleTypesÖ0
+variable:   sampleTypes.sampleTypes :: cpuSamples
+delSamplesÌ16384ÎsampleTypes.sampleTypesÖ0
+variable:   sampleTypes.sampleTypes :: delSamples
+dosÌ16384ÎsampleTypes.sampleTypesÖ0
+variable:   sampleTypes.sampleTypes :: dos
+flash.display.SpriteÌ32768Ö0
+externvar:  flash.display.Sprite
+flash.sampler.*Ì32768Ö0
+externvar:  flash.sampler.*
+flash.system.*Ì32768Ö0
+externvar:  flash.system.*
+flash.utils.*Ì32768Ö0
+externvar:  flash.utils.*
+idsÌ16384ÎsampleTypes.sampleTypesÖ0
+variable:   sampleTypes.sampleTypes :: ids
+lastTimeÌ16384ÎsampleTypes.sampleTypesÖ0
+variable:   sampleTypes.sampleTypes :: lastTime
+newSamplesÌ16384ÎsampleTypes.sampleTypesÖ0
+variable:   sampleTypes.sampleTypes :: newSamples
+nosÌ16384ÎsampleTypes.sampleTypesÖ0
+variable:   sampleTypes.sampleTypes :: nos
+sampleTypesÌ1Ö0
+class:      sampleTypes
+sampleTypesÌ128ÎsampleTypesÖ0
+method:     sampleTypes :: sampleTypes

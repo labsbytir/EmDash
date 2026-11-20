@@ -1,0 +1,12 @@
+ContainerÌ1Í()Ö0
+class:      Container()
+MyClassÌ16384Ö0
+variable:   MyClass
+insertÌ128Í(element, insertions)ÎMyClassÖ0
+method:     MyClass :: insert(element, insertions)
+wrapÌ128Í(element, wrapper, attributes)ÎMyClassÖ0
+method:     MyClass :: wrap(element, wrapper, attributes)
+xÌ16Í()ÎContainerÖ0
+function:   Container :: x()
+yÌ16Í()ÎContainerÖ0
+function:   Container :: y()

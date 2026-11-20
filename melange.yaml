@@ -15,18 +15,14 @@ environment:
     packages:
       - build-base
       - busybox
-      - cmake
-      - qt6-qtbase-dev
-      - hunspell-dev
+      - meson
+      - ninja
+      - gtk-3-dev
       - python3.13
+      - gettext-dev
       - wget
 
-# NOTE: full build blocked on Wolfi providing qt6-qtsvg (hard requirement:
-# svgicons.cpp). Rest of the pipeline is ready pending that package.
-subpackages:
-  - name: emdash-harper
-    description: "Harper grammar-check LS for EmDash (musl static)"
-    pipeline:
+pipeline:
       - runs: |
           mkdir -p ${{targets.contextdir}}/usr/bin
           cd /tmp
@@ -35,11 +31,9 @@ subpackages:
           install -m 0755 harper-ls ${{targets.contextdir}}/usr/bin/harper-ls
 
 pipeline:
-  - uses: cmake/configure
-    with:
-      opts: -DWITHOUT_X11=ON
-  - uses: cmake/build
-  - uses: cmake/install
+  - uses: meson/configure
+  - uses: meson/compile
+  - uses: meson/install
 
   - runs: |
       mkdir -p ${{targets.contextdir}}/usr/bin

@@ -1,0 +1,4 @@
+hex2decÌ16Í(hexnum in char)Ö0Ïnumber
+function:   number hex2dec(hexnum in char)
+num2hexÌ16Í(N in number)Ö0Ïvarchar2
+function:   varchar2 num2hex(N in number)

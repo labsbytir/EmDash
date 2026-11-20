@@ -1,0 +1,6 @@
+insigÌ32768ÎtopÖ0
+externvar:  top :: insig
+outsigÌ32768ÎtopÖ0
+externvar:  top :: outsig
+topÌ1024Ö0
+prototype:  top

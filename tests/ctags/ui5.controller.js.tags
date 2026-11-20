@@ -1,0 +1,12 @@
+app.my_formÌ1Ö0
+class:      app.my_form
+onInitÌ128Í()Îapp.my_formÖ0
+method:     app.my_form :: onInit()
+refreshFormÌ128Í(AUFNR)Îapp.my_formÖ0
+method:     app.my_form :: refreshForm(AUFNR)
+refreshSettlementsÌ128Í(AUFNR)Îapp.my_formÖ0
+method:     app.my_form :: refreshSettlements(AUFNR)
+setRefreshedÌ128Í(value)Îapp.my_formÖ0
+method:     app.my_form :: setRefreshed(value)
+successfulRequestÌ128Í(data)Îapp.my_formÖ0
+method:     app.my_form :: successfulRequest(data)

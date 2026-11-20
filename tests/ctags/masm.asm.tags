@@ -1,0 +1,22 @@
+BYTE_BUFFERÃ256÷0
+namespace:  BYTE_BUFFER
+LabelMaker1Ã256÷0
+namespace:  LabelMaker1
+LabelMaker2Ã256÷0
+namespace:  LabelMaker2
+MsgÃ65536÷0
+macro:      Msg
+QUACKÃ256÷0
+namespace:  QUACK
+WORD_BUFFERÃ65536÷0
+macro:      WORD_BUFFER
+hllequalÃ65536÷0
+macro:      hllequal
+myequÃ65536÷0
+macro:      myequ
+myequalÃ65536÷0
+macro:      myequal
+mymacroÃ16Õargs÷0
+function:   mymacroargs
+mystructÃ2048÷0
+struct:     mystruct

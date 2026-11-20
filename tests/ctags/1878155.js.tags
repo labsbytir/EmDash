@@ -1,0 +1,8 @@
+REÌ16384Ö0
+variable:   RE
+barÌ64ÎREÖ0
+member:     RE :: bar
+fooÌ16384Ö0
+variable:   foo
+my_functionÌ16Í()Ö0
+function:   my_function()

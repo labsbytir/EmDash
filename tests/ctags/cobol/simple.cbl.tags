@@ -1,0 +1,42 @@
+AUTHORÃ65536÷0
+macro:      AUTHOR
+BeginÃ65536÷0
+macro:      Begin
+DATAÃ32÷0
+interface:  DATA
+DW-DAYS-IN-MONTHÃ16384ŒGroup-Name.Data-Item1.DW-DAYS-IN-MONTHS÷0
+variable:   Group-Name.Data-Item1.DW-DAYS-IN-MONTHS :: DW-DAYS-IN-MONTH
+DW-DAYS-IN-MONTHSÃ16384ŒGroup-Name.Data-Item1÷0
+variable:   Group-Name.Data-Item1 :: DW-DAYS-IN-MONTHS
+Data-Item1Ã16384ŒGroup-Name÷0
+variable:   Group-Name :: Data-Item1
+ENVIRONMENTÃ32÷0
+interface:  ENVIRONMENT
+FILEÃ256÷0
+namespace:  FILE
+FILE-CONTROLÃ65536÷0
+macro:      FILE-CONTROL
+File-Data-ItemÃ16384ŒFile-Group-Name÷0
+variable:   File-Group-Name :: File-Data-Item
+File-Group-NameÃ2048÷0
+struct:     File-Group-Name
+File-NameÃ16÷0
+function:   File-Name
+Group-NameÃ2048÷0
+struct:     Group-Name
+IDENTIFICATIONÃ32÷0
+interface:  IDENTIFICATION
+INPUT-OUPUTÃ256÷0
+namespace:  INPUT-OUPUT
+PROCEDUREÃ32÷0
+interface:  PROCEDURE
+Program-NameÃ1÷0
+class:      Program-Name
+SH-WORK-MMDDYYYYÃ16384ŒGroup-Name.Data-Item1÷0
+variable:   Group-Name.Data-Item1 :: SH-WORK-MMDDYYYY
+SH-WORK-MMDDYYYY-2Ã16384ŒGroup-Name.Data-Item1÷0
+variable:   Group-Name.Data-Item1 :: SH-WORK-MMDDYYYY-2
+Subprogram-NameÃ65536÷0
+macro:      Subprogram-Name
+WORKING-STORAGEÃ256÷0
+namespace:  WORKING-STORAGE

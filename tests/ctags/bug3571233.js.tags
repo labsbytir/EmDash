@@ -1,0 +1,18 @@
+MyClassÃ1Õ()÷0
+class:      MyClass()
+function1Ã16Õ()÷0
+function:   function1()
+function2Ã16Õ()÷0
+function:   function2()
+method2Ã128Õ()ŒMyClass÷0
+method:     MyClass :: method2()
+nestedFunction1Ã16Õ()ŒMyClass.method2÷0
+function:   MyClass.method2 :: nestedFunction1()
+nestedFunction2Ã16Õ()ŒMyClass.method2÷0
+function:   MyClass.method2 :: nestedFunction2()
+nestedFunction3Ã16Õ()Œfunction1÷0
+function:   function1 :: nestedFunction3()
+nestedFunction4Ã16Õ()Œfunction2÷0
+function:   function2 :: nestedFunction4()
+nestedFunction5Ã16Õ()Œfunction2÷0
+function:   function2 :: nestedFunction5()

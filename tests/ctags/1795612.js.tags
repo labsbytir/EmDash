@@ -1,0 +1,8 @@
+Test.RPCÌ64Ö0
+member:     Test.RPC
+asyncMethodÌ128Í(  uri,  method,  params,  callback)ÎTest.RPCÖ0
+method:     Test.RPC :: asyncMethod(  uri,  method,  params,  callback)
+asyncRequestÌ128Í(  uri,  data,  callback)ÎTest.RPCÖ0
+method:     Test.RPC :: asyncRequest(  uri,  data,  callback)
+request_idÌ64ÎTest.RPCÖ0
+member:     Test.RPC :: request_id

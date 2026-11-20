@@ -1,0 +1,24 @@
+arrayÌ64ÎrootÖ0
+member:     root :: array
+decimalÌ64ÎrootÖ0
+member:     root :: decimal
+fÌ16Í()Ö0
+function:   f()
+idÌ64ÎrootÖ0
+member:     root :: id
+methodÌ128Í()ÎrootÖ0
+method:     root :: method()
+negÌ64ÎrootÖ0
+member:     root :: neg
+parenthesesÌ64ÎrootÖ0
+member:     root :: parentheses
+rootÌ16384Ö0
+variable:   root
+stringÌ64ÎrootÖ0
+member:     root :: string
+subFunctionÌ128Í()Îroot.subObjectÖ0
+method:     root.subObject :: subFunction()
+subObjectÌ64ÎrootÖ0
+member:     root :: subObject
+subPropertyÌ64Îroot.subObjectÖ0
+member:     root.subObject :: subProperty

@@ -1,0 +1,6 @@
+AÌ256Ö0
+namespace:  A
+BÌ256ÎAÖ0
+namespace:  A :: B
+CÌ1ÎA.BÖ0
+class:      A.B :: C

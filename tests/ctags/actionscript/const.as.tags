@@ -1,0 +1,10 @@
+AlarmClockÌ1Ö0
+class:      AlarmClock
+MODE_AUDIOÌ65536ÎAlarmClockÖ0
+macro:      AlarmClock :: MODE_AUDIO
+MODE_BOTHÌ65536ÎAlarmClockÖ0
+macro:      AlarmClock :: MODE_BOTH
+MODE_VISUALÌ65536ÎAlarmClockÖ0
+macro:      AlarmClock :: MODE_VISUAL
+modeÌ16384ÎAlarmClockÖ0
+variable:   AlarmClock :: mode

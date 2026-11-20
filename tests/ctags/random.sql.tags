@@ -1,0 +1,36 @@
+SeedÌ16384ÎrandomÖ0
+variable:   random :: Seed
+get_randÌ256Í(r OUT number)ÎrandomÖ0
+namespace:  random :: get_rand(r OUT number)
+get_randÌ1024ÎrandomÖ0
+prototype:  random :: get_rand
+get_rand_maxÌ256Í(r OUT number, n IN number)ÎrandomÖ0
+namespace:  random :: get_rand_max(r OUT number, n IN number)
+get_rand_maxÌ1024ÎrandomÖ0
+prototype:  random :: get_rand_max
+incrementÌ16384ÎrandomÖ0
+variable:   random :: increment
+multiplierÌ16384ÎrandomÖ0
+variable:   random :: multiplier
+randÌ16ÎrandomÖ0Ïnumber
+function:   number random :: rand
+randÌ1024ÎrandomÖ0
+prototype:  random :: rand
+rand_maxÌ16Í(n IN number)ÎrandomÖ0Ïnumber
+function:   number random :: rand_max(n IN number)
+rand_maxÌ1024ÎrandomÖ0
+prototype:  random :: rand_max
+rand_stringÌ16Í(ssiz IN number)ÎrandomÖ0Ïvarchar2
+function:   varchar2 random :: rand_string(ssiz IN number)
+rand_stringÌ1024ÎrandomÖ0
+prototype:  random :: rand_string
+randomÌ512Ö0
+package:    random
+smallerÌ16Í(x IN number, y IN number)ÎrandomÖ0Ïnumber
+function:   number random :: smaller(x IN number, y IN number)
+smallerÌ1024ÎrandomÖ0
+prototype:  random :: smaller
+srandÌ256Í(new_seed in number)ÎrandomÖ0
+namespace:  random :: srand(new_seed in number)
+srandÌ1024ÎrandomÖ0
+prototype:  random :: srand
